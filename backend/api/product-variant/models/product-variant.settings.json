@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variants",
+  "info": {
+    "name": "ProductVariant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "product": {
+      "model": "product",
+      "via": "product_variants"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "promo": {
+      "type": "boolean"
+    },
+    "colorLabel": {
+      "type": "enumeration",
+      "enum": [
+        "Black",
+        "White",
+        "Green",
+        "Tan",
+        "Red"
+      ]
+    }
+  }
+}

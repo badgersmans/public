@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "name": "subscription"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "subscriptions"
+    },
+    "product_variant": {
+      "model": "product-variant"
+    },
+    "orders": {
+      "collection": "order",
+      "via": "subscription"
+    },
+    "frequency": {
+      "type": "enumeration",
+      "enum": [
+        "one_week",
+        "two_weeks",
+        "three_weeks",
+        "one_month",
+        "three_months",
+        "six_months",
+        "yearly"
+      ]
+    },
+    "last_delivery": {
+      "type": "date"
+    },
+    "next_delivery": {
+      "type": "date"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "paymentMethod": {
+      "type": "json"
+    },
+    "shippingAddress": {
+      "type": "json"
+    },
+    "shippingInfo": {
+      "type": "json"
+    },
+    "billingAddress": {
+      "type": "json"
+    },
+    "billingInfo": {
+      "type": "json"
+    },
+    "productName": {
+      "type": "string"
+    }
+  }
+}
